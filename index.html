@@ -16,8 +16,8 @@
 
         .main {
             position: relative;
-            margin-left: -20%;
             left: 50%;
+            transform: translate(-50%);
             width: 620px;
             margin-top: 0px;
         }
@@ -62,7 +62,8 @@
             font-weight: bolder;
             transition: 0.2s;
         }
-        .foo{
+
+        .foo {
             position: fixed;
             margin: 2px;
             bottom: 1px;
@@ -70,41 +71,88 @@
             font-size: small;
             color: rgb(110, 110, 110);
         }
+
+        #preloader {
+            width: 100%;
+            height: 100vh;
+            border: transparent 2px solid;
+            z-index: 999;
+            display: grid;
+            place-items: center;
+            background: transparent;
+        }
+
+        #loader {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            border: #f3f3f3 solid 8px;
+            border-radius: 50%;
+            border-top: #3498db solid 8px;
+            animation: preloader 1s infinite linear;
+        }
+
+        @keyframes preloader {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #bodycontent {
+            display: none;
+        }
     </style>
 
 </head>
 
-<body>
-    <div class="tit">
-        Select your Language you NooB coder
+<body onload="onloadispreload()">
+    <div id="preloader">
+        <div id="loader"></div>
     </div>
+    <div id="bodycontent">
+        <div class="tit">
+            Select your Language you NooB coder
+        </div>
+        <div class="main">
 
-    <div class="main">
+            <div class="buttonss">
+                <button type="button" class="btn btn-outline-warning" onclick="playcode('java')">Java</button>
+                <button type="button" class="btn btn-outline-warning" onclick="playcode('py')">Python</button>
+                <button type="button" class="btn btn-outline-warning" onclick="playcode('js')">JavaScript</button>
+                <button type="button" class="btn btn-outline-warning" onclick="playcode('php')">PHP</button>
+                <button type="button" class="btn btn-outline-warning" onclick="playcode('asm')">ASSEMBLY</button>
+                <button type="button" class="btn btn-outline-warning" onclick="playcode('c')">C</button>
+                <button type="button" class="btn btn-outline-warning" onclick="playcode('swift')">Swift</button>
+                <button type="button" class="btn btn-outline-warning" onclick="playcode('cpp')">C++</button>
+                <button type="button" class="btn btn-outline-warning" onclick="playcode('html')">HTML</button>
+            </div>
 
-        <div class="buttonss">
-            <button type="button" class="btn btn-outline-warning" onclick="playcode('java')">Java</button>
-            <button type="button" class="btn btn-outline-warning" onclick="playcode('py')">Python</button>
-            <button type="button" class="btn btn-outline-warning" onclick="playcode('js')">JavaScript</button>
-            <button type="button" class="btn btn-outline-warning" onclick="playcode('php')">PHP</button>
-            <button type="button" class="btn btn-outline-warning" onclick="playcode('asm')">ASSEMBLY</button>
-            <button type="button" class="btn btn-outline-warning" onclick="playcode('c')">C</button>
-            <button type="button" class="btn btn-outline-warning" onclick="playcode('swift')">Swift</button>
-            <button type="button" class="btn btn-outline-warning" onclick="playcode('cpp')">C++</button>
-            <button type="button" class="btn btn-outline-warning" onclick="playcode('html')">HTML</button>
+
+            <div class="mainvid">
+                <video id="vid" width="620" height="auto">
+                    <source src="index.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
 
-        <div class="mainvid">
-            <video id="vid" width="620" height="auto">
-                <source src="index.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="foo">
+            if the playback laggs, wait for it to buffer and try again or you might try refreshing the tab i dont know
+            if
+            still it laggs its your problem NOT my coding skills u NooB
         </div>
     </div>
 
-    <div class="foo">
-        if the playback laggs, wait for it to buffer and try again or you might try refreshing the tab i dont know if
-        still it laggs its your problem NOT my coding skills u NooB
-    </div>
+    <script>
+        function onloadispreload() {
+            document.getElementById('preloader').style.display = 'none';
+            document.getElementById('bodycontent').style.display = 'block';
+        }
+    </script>
 </body>
 
 </html>
